@@ -8,6 +8,7 @@ window.onload = function() {
   var kekuatanlompatanpemain;
   var score = 0;
   var scoreText;
+  var petunjuk;
   var topScore;
   var kekuatan;
   var powerTween;
@@ -42,10 +43,17 @@ window.onload = function() {
 
       introText = game.add.text(200, 160, '', {
       font: "60px arial",
-      fill: "#ffffff",
+      fill: "#FF0000",
       align: "center"
       });
       introText.visible = false;
+
+      petunjuk = game.add.text( 7, 60, ' Petunjuk : kelik untuk mekompat, semakin lama ditekan maka lompatan akan semakin jauh', {
+      font: " bold 16px arial",
+      fill: "#000000",
+      align: "left"
+      });
+      petunjuk.visible = true;
         // suara
       game.lompat = game.add.audio('lompatt', SOUND_VOLUME);
       game.power = game.add.audio('power', SOUND_VOLUME);
@@ -87,6 +95,7 @@ window.onload = function() {
       game.input.onDown.remove(siaplompat, this);
       game.input.onUp.add(jump, this);
       game.power.play();
+      petunjuk.visible = false;
     }
   }
 
